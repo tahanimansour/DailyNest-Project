@@ -14,10 +14,10 @@ export default function Products({ categoryId, preview = false }) {
                 Featured <Box component="span" sx={{ color: '#B8955A', fontStyle: 'italic' }}>essentials</Box>
             </Typography>
             <Box sx={{
-                display: 'grid', gap: 2, gridTemplateColumns: {
-                    xs: "repeat(2,1fr)",
-                    sm: "repeat(3,1fr)",
-                    md: "repeat(4,1fr)",
+                display: 'grid', gridAutoRows: '1fr', alignItems: 'stretch', gap: { xs: 1.5, sm: 2 }, gridTemplateColumns: {
+                    xs: "repeat(2,minmax(0,1fr))",
+                    sm: "repeat(3,minmax(0,1fr))",
+                    md: "repeat(4,minmax(0,1fr))",
 
                 }
             }}>
