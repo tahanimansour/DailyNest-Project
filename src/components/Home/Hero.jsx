@@ -15,9 +15,9 @@ export default function Hero() {
           <Box component="span" sx={{ color: '#B8955A', fontFamily: 'Georgia, serif', fontStyle: 'italic' }}>All in One Place.</Box>
         </Typography>
         <Typography sx={{ color: '#7B8076', fontSize: 14, lineHeight: 1.8, maxWidth: 420, mb: 3 }}>Elevate your routine with thoughtfully designed lifestyle goods, organic pantry finds, smart electronics, and mindful home essentials.</Typography>
-        <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-          <Button component="a" href="#products" variant="contained" sx={{ bgcolor: '#094232', borderRadius: 8, textTransform: 'uppercase', letterSpacing: 1, boxShadow: 'none', px: 3, py: 1.25, fontSize: 10, '&:hover': { bgcolor: '#063326', boxShadow: 'none' } }}>Shop Now →</Button>
-          <Button component="a" href="#categories" variant="outlined" sx={{ color: '#0B4A3A', borderColor: '#DDD9CB', borderRadius: 8, textTransform: 'uppercase', letterSpacing: 1, px: 3, py: 1.25, fontSize: 10 }}>Explore Categories</Button>
+        <Box sx={{ display: 'flex', gap: { xs: 1, sm: 2 }, flexWrap: 'nowrap' }}>
+          <Button component="a" href="#products" variant="contained" sx={{ bgcolor: '#094232', borderRadius: 8, textTransform: 'uppercase', letterSpacing: 1, boxShadow: 'none', px: { xs: 1.5, sm: 3 }, py: 1.25, fontSize: { xs: 9, sm: 10 }, whiteSpace: 'nowrap', '&:hover': { bgcolor: '#063326', boxShadow: 'none' } }}>Shop Now →</Button>
+          <Button component="a" href="#categories" variant="outlined" sx={{ color: '#0B4A3A', borderColor: '#DDD9CB', borderRadius: 8, textTransform: 'uppercase', letterSpacing: 1, px: { xs: 1.5, sm: 3 }, py: 1.25, fontSize: { xs: 9, sm: 10 }, whiteSpace: 'nowrap' }}>Explore Categories</Button>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: { xs: 2, md: 3 }, mt: 3, pt: 3, borderTop: '1px solid #E4E1D7', color: '#66715E' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>

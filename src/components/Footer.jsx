@@ -9,8 +9,8 @@ export default function Footer() {
   return (
     <Box component="footer" sx={{ bgcolor: '#0A2A21', color: '#E7EAD5', pt: { xs: 5, md: 7 }, pb: 3, borderTop: '1px solid #B8955A' }}>
       <Container maxWidth="lg">
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '2fr 1fr 1fr' }, gap: { xs: 4, md: 7 }, mb: 5 }}>
-          <Box>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'repeat(2, minmax(0, 1fr))', md: '2fr 1fr 1fr' }, gap: { xs: 3, md: 7 }, mb: { xs: 3, md: 5 } }}>
+          <Box sx={{ gridColumn: { xs: '1 / -1', md: 'auto' } }}> 
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: '#C2AF88', color: '#0A2A21', width: 28, height: 28, borderRadius: 1 }}>
                 <LocalMallOutlinedIcon sx={{ fontSize: 16 }} />
@@ -30,8 +30,8 @@ export default function Footer() {
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 1 }}>
             <Typography sx={{ fontSize: 14, fontWeight: 600, mb: 1 }}>Explore</Typography>
             <Link component={RouterLink} to="/" color="inherit" underline="hover" sx={{ fontSize: 12 }}>Home</Link>
-            <Link href="/#categories" color="inherit" underline="hover" sx={{ fontSize: 12 }}>Categories</Link>
-            <Link href="/#products" color="inherit" underline="hover" sx={{ fontSize: 12 }}>Products</Link>
+            <Link component={RouterLink} to="/categories" color="inherit" underline="hover" sx={{ fontSize: 12 }}>Categories</Link>
+            <Link component={RouterLink} to="/products" color="inherit" underline="hover" sx={{ fontSize: 12 }}>Products</Link>
           </Box>
 
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 1 }}>
