@@ -5,7 +5,7 @@ export default function useProduct(id) {
     
     const getProductDetails=async()=>{
         const response = await axiosInstance.get(`Products/${id}`);
-        return response.data.response;
+        return response.data;
     }
 
     return useQuery({

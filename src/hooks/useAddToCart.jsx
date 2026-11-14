@@ -1,8 +1,10 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import authAxiosInstance from '../api/authAxiosInstance'
 
 export default function useAddToCart() {
-  const addToCart = async (productId) => {
+  const queryClient = useQueryClient()
+
+  const addToCart = async ({ productId }) => {
     const response = await authAxiosInstance.post('Carts', {
       ProductId: productId,
       Count: 1
@@ -11,6 +13,9 @@ export default function useAddToCart() {
   }
 
   return useMutation({
-    mutationFn: addToCart
+    mutationFn: addToCart,
+    onSuccess: () => {
+      return queryClient.invalidateQueries({ queryKey: ['cart'] })
+    }
   })
 }

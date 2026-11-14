@@ -27,15 +27,15 @@ export default function SendCode() {
 
   return (
     <Container maxWidth="xs" disableGutters>
-      <Box sx={{ width: '100%', bgcolor: '#FCFAF6', border: '1px solid #E4E1D7', boxShadow: '0 4px 18px #0A2A2108', p: { xs: 3, sm: 4 }, borderRadius: 3 }}>
-        <Typography sx={{ fontSize: 10, letterSpacing: 1.5, color: '#7B8076', mb: 1.5 }}>PASSWORD RECOVERY</Typography>
-        <Box sx={{ height: 3, bgcolor: '#E8EDE3', mb: 3 }}>
-          <Box sx={{ width: '50%', height: '100%', bgcolor: '#0B4A3A' }}></Box>
+      <Box sx={{ width: '100%', bgcolor: 'background.paper', border: '1px solid #E4E1D7', boxShadow: '0 4px 18px #0A2A2108', p: { xs: 3, sm: 4 }, borderRadius: 3 }}>
+        <Typography sx={{ fontSize: 10, letterSpacing: 1.5, color: 'text.secondary', mb: 1.5 }}>PASSWORD RECOVERY</Typography>
+        <Box sx={{ height: 3, bgcolor: 'primary.light', mb: 3 }}>
+          <Box sx={{ width: '50%', height: '100%', bgcolor: 'primary.main' }}></Box>
         </Box>
         <Typography component="h1" sx={{ fontFamily: 'Georgia, serif', fontSize: 30, fontWeight: 400, mb: 1 }}>
-          Forgot your <Box component="span" sx={{ color: '#B8955A', fontStyle: 'italic' }}>password?</Box>
+          Forgot your <Box component="span" sx={{ color: 'secondary.main', fontStyle: 'italic' }}>password?</Box>
         </Typography>
-        <Typography sx={{ fontSize: 13, lineHeight: 1.7, color: '#7B8076', mb: 2 }}>Enter your email and we will send you a verification code.</Typography>
+        <Typography sx={{ fontSize: 13, lineHeight: 1.7, color: 'text.secondary', mb: 2 }}>Enter your email and we will send you a verification code.</Typography>
         {location.state?.message ? <Alert severity="info">{location.state.message}</Alert> : null}
         {serverError ? <Alert severity="error">{serverError}</Alert> : null}
         <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>

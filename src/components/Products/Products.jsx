@@ -7,11 +7,11 @@ export default function Products({ categoryId, preview = false }) {
 
     return (
         <Box sx={{ borderTop: '1px solid #E4E1D7', pt: { xs: 3, md: 5 } }}>
-            <Typography sx={{ color: '#B8955A', fontSize: 10, letterSpacing: 2, fontWeight: 600, mb: 1 }}>
+            <Typography sx={{ color: 'secondary.main', fontSize: 10, letterSpacing: 2, fontWeight: 600, mb: 1 }}>
                 CAREFULLY SELECTED
             </Typography>
-            <Typography component={'h2'} sx={{ color: '#0A2A21', fontSize: { xs: 28, md: 36 }, fontFamily: 'Georgia, serif', fontWeight: 400, mb: 4 }}>
-                Featured <Box component="span" sx={{ color: '#B8955A', fontStyle: 'italic' }}>essentials</Box>
+            <Typography component={'h2'} sx={{ color: 'text.primary', fontSize: { xs: 28, md: 36 }, fontFamily: 'Georgia, serif', fontWeight: 400, mb: 4 }}>
+                Featured <Box component="span" sx={{ color: 'secondary.main', fontStyle: 'italic' }}>essentials</Box>
             </Typography>
             <Box sx={{
                 display: 'grid', gridAutoRows: '1fr', alignItems: 'stretch', gap: { xs: 1.5, sm: 2 }, gridTemplateColumns: {
@@ -22,7 +22,7 @@ export default function Products({ categoryId, preview = false }) {
                 }
             }}>
                 {
-                    isPending ? <Box sx={{ gridColumn: '1 / -1', py: 5, textAlign: 'center' }}><CircularProgress size={28} sx={{ color: '#0B4A3A' }} /></Box> : isError ? <Alert severity="error" sx={{ gridColumn: '1 / -1' }}>Failed to load products.</Alert> : (preview ? data.slice(0, 4) : data).map((product) => (<ProductCard product={product} />))
+                    isPending ? <Box sx={{ gridColumn: '1 / -1', py: 5, textAlign: 'center' }}><CircularProgress size={28} sx={{ color: 'primary.main' }} /></Box> : isError ? <Alert severity="error" sx={{ gridColumn: '1 / -1' }}>Failed to load products.</Alert> : (preview ? data.slice(0, 4) : data).map((product) => (<ProductCard product={product} />))
                 }
             </Box>
             {!isPending && !isError && !data.length ? <Typography sx={{ py: 3 }}>No products in this category yet.</Typography> : null}

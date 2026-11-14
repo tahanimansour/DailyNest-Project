@@ -31,11 +31,11 @@ export default function Register() {
     <Container
       maxWidth="xs" disableGutters>
 
-      <Box sx={{ width: '100%', bgcolor: '#FCFAF6', border: '1px solid #E4E1D7', boxShadow: '0 4px 18px #0A2A2108', p: { xs: 3, sm: 4 }, borderRadius: 3 }}>
+      <Box sx={{ width: '100%', bgcolor: 'background.paper', border: '1px solid #E4E1D7', boxShadow: '0 4px 18px #0A2A2108', p: { xs: 3, sm: 4 }, borderRadius: 3 }}>
         <Typography component="h1" sx={{ fontFamily: 'Georgia, serif', fontSize: 30, fontWeight: 400, mb: 1 }}>
-          Create your <Box component="span" sx={{ color: '#B8955A', fontStyle: 'italic' }}>account</Box>
+          Create your <Box component="span" sx={{ color: 'secondary.main', fontStyle: 'italic' }}>account</Box>
         </Typography>
-        <Typography sx={{ fontSize: 13, color: '#7B8076', mb: 2 }}>Join DailyNest and start exploring</Typography>
+        <Typography sx={{ fontSize: 13, color: 'text.secondary', mb: 2 }}>Join DailyNest and start exploring</Typography>
 
         {serverError ? <Alert severity="error">{serverError}</Alert> : null}
 
@@ -91,7 +91,7 @@ export default function Register() {
           </Button>
         </Box>
 
-        <Typography variant="body2" sx={{ textAlign: 'center', mt: 3, fontSize: 12, color: '#7B8076' }}>
+        <Typography variant="body2" sx={{ textAlign: 'center', mt: 3, fontSize: 12, color: 'text.secondary' }}>
           Already have an account? <Link to="/login">Sign in</Link>
         </Typography>
       </Box>

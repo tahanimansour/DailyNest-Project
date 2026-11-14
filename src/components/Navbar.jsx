@@ -24,11 +24,11 @@ export default function Navbar() {
   }
 
   return (
-    <AppBar position="static" sx={{ bgcolor: '#0A2A21', color: '#E7EAD5', boxShadow: 'none', borderBottom: '1px solid #B8955A' }}>
+    <AppBar position="static" sx={{ bgcolor: 'text.primary', color: '#E7EAD5', boxShadow: 'none', borderBottom: '1px solid #B8955A' }}>
       <Container maxWidth="lg">
       <Toolbar disableGutters sx={{ display: { xs: 'flex', md: 'grid' }, gridTemplateColumns: 'auto 1fr auto', minHeight: { xs: 48, sm: 54 }, gap: { xs: 1, md: 2 }, flexWrap: 'nowrap', py: 0.5 }}>
-        <Typography variant="h6" component={Link} to="/" sx={{ color: '#C2AF88', '&:visited': { color: '#C2AF88' }, display: 'flex', alignItems: 'center', gap: 0.75, textDecoration: 'none', fontSize: 15, fontWeight: 700, letterSpacing: -0.5 }}>
-          <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, bgcolor: '#C2AF88', color: '#0A2A21', borderRadius: 1 }}>
+        <Typography variant="h6" component={Link} to="/" sx={{ color: 'secondary.light', '&:visited': { color: 'secondary.light' }, display: 'flex', alignItems: 'center', gap: 0.75, textDecoration: 'none', fontSize: 15, fontWeight: 700, letterSpacing: -0.5 }}>
+          <Box component="span" sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 28, height: 28, bgcolor: 'secondary.light', color: 'text.primary', borderRadius: 1 }}>
             <LocalMallOutlinedIcon sx={{ fontSize: 16 }} />
           </Box>
           DailyNest
@@ -49,16 +49,17 @@ export default function Navbar() {
         <IconButton color="inherit" aria-label="Open navigation menu" aria-controls={menuAnchor ? 'mobile-navigation' : undefined} aria-haspopup="true" aria-expanded={!!menuAnchor} onClick={(event) => setMenuAnchor(event.currentTarget)} sx={{ display: { xs: 'inline-flex', md: 'none' } }}>
           <MenuIcon />
         </IconButton>
-        <Menu id="mobile-navigation" anchorEl={menuAnchor} open={!!menuAnchor} onClose={closeMenu} slotProps={{ paper: { sx: { minWidth: 180, bgcolor: '#FAF7F0', color: '#0A2A21', borderRadius: 2 } } }}>
+        <Menu id="mobile-navigation" anchorEl={menuAnchor} open={!!menuAnchor} onClose={closeMenu} slotProps={{ paper: { sx: { minWidth: 180, bgcolor: 'background.default', color: 'text.primary', borderRadius: 2 } } }}>
           <MenuItem component={Link} to="/" selected={location.pathname === '/'} onClick={closeMenu}>Home</MenuItem>
           <MenuItem component={Link} to="/products" selected={location.pathname.startsWith('/products')} onClick={closeMenu}>Products</MenuItem>
           <MenuItem component={Link} to="/categories" selected={location.pathname.startsWith('/categories')} onClick={closeMenu}>Categories</MenuItem>
+          <MenuItem component={Link} to="/cart" selected={location.pathname === '/cart'} onClick={closeMenu}>Cart</MenuItem>
           {token ? <MenuItem onClick={handleLogout}>Logout</MenuItem> : <MenuItem component={Link} to="/login" onClick={closeMenu}>Login</MenuItem>}
         </Menu>
         <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 2, ml: { xs: 'auto', md: 0 }, px: 0.5 }}>
           <FavoriteBorderIcon sx={{ fontSize: 16 }} />
           <PersonOutlineIcon sx={{ fontSize: 16 }} />
-          <LocalMallOutlinedIcon sx={{ fontSize: 16 }} />
+          <IconButton component={Link} to="/cart" color="inherit" aria-label="Open cart" size="small"><LocalMallOutlinedIcon sx={{ fontSize: 16 }} /></IconButton>
           <DarkModeOutlinedIcon sx={{ fontSize: 16 }} />
 
         </Box>

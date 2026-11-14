@@ -37,13 +37,13 @@ export default function ResetPassword() {
 
   return (
     <Container maxWidth="xs" disableGutters>
-      <Box sx={{ width: '100%', bgcolor: '#FCFAF6', border: '1px solid #E4E1D7', boxShadow: '0 4px 18px #0A2A2108', p: { xs: 3, sm: 4 }, borderRadius: 3 }}>
-        <Typography sx={{ fontSize: 10, letterSpacing: 1.5, color: '#7B8076', mb: 1.5 }}>SET NEW PASSWORD</Typography>
-        <Box sx={{ height: 3, bgcolor: '#0B4A3A', mb: 3 }}></Box>
+      <Box sx={{ width: '100%', bgcolor: 'background.paper', border: '1px solid #E4E1D7', boxShadow: '0 4px 18px #0A2A2108', p: { xs: 3, sm: 4 }, borderRadius: 3 }}>
+        <Typography sx={{ fontSize: 10, letterSpacing: 1.5, color: 'text.secondary', mb: 1.5 }}>SET NEW PASSWORD</Typography>
+        <Box sx={{ height: 3, bgcolor: 'primary.main', mb: 3 }}></Box>
         <Typography component="h1" sx={{ fontFamily: 'Georgia, serif', fontSize: 30, fontWeight: 400, mb: 1 }}>
-          Create a new <Box component="span" sx={{ color: '#B8955A', fontStyle: 'italic' }}>password</Box>
+          Create a new <Box component="span" sx={{ color: 'secondary.main', fontStyle: 'italic' }}>password</Box>
         </Typography>
-        <Typography sx={{ fontSize: 13, lineHeight: 1.7, color: '#7B8076', mb: 2 }}>Enter the code sent to your email and choose your new password.</Typography>
+        <Typography sx={{ fontSize: 13, lineHeight: 1.7, color: 'text.secondary', mb: 2 }}>Enter the code sent to your email and choose your new password.</Typography>
         {serverError ? <Alert severity="error">{serverError}</Alert> : null}
         <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
           <TextField
