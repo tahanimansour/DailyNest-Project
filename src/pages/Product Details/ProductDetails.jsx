@@ -1,3 +1,4 @@
+import useAddToCart from '../../hooks/useAddToCart'
 import useProduct from '../../hooks/UseProduct'
 import { Link, useParams } from 'react-router-dom'
 import ReviewItem from '../../components/ReviewItem'
@@ -6,6 +7,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 
 export default function ProductDetails() {
     const { id } = useParams();
+    const { mutate, isPending: isAdding } = useAddToCart();
     const{data,isPending,isError}=useProduct(id);
     if(isPending) return <Box sx={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: '#FAF7F0' }}><CircularProgress sx={{ color: '#0B4A3A' }} /></Box>
     if(isError) return <Container maxWidth="lg" sx={{ py: 6, minHeight: '60vh' }}><Alert severity="error">Failed to load product details.</Alert></Container>
@@ -32,7 +34,7 @@ export default function ProductDetails() {
 
             <Chip label={inStock ? "In Stock" : "Out Of Stock"} color={inStock ? "success":"error"} size="small" variant="outlined" sx={{ mb: 2 }}></Chip>
             <Typography sx={{ color: '#7B8076', fontSize: 15, lineHeight: 1.9, mb: 3 }}>{data.description}</Typography>
-            <Button variant='contained' disabled={!inStock} startIcon={<ShoppingCartOutlinedIcon />} sx={{ bgcolor: '#094232', textTransform: 'none', boxShadow: 'none', width: { xs: '100%', sm: 'auto' }, px: 4, py: 1.25, '&:hover': { bgcolor: '#063326', boxShadow: 'none' } }}>Add To Cart</Button>
+            <Button variant='contained' disabled={!inStock || isAdding} onClick={() => mutate(data.id)} startIcon={<ShoppingCartOutlinedIcon />} sx={{ bgcolor: '#094232', textTransform: 'none', boxShadow: 'none', width: { xs: '100%', sm: 'auto' }, px: 4, py: 1.25, '&:hover': { bgcolor: '#063326', boxShadow: 'none' } }}>{isAdding ? 'Adding...' : 'Add To Cart'}</Button>
         </Box>
     </Box>
     <Divider sx={{my:5,borderColor:'#E4E1D7'}}/>

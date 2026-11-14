@@ -1,13 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import axiosInstance from '../api/axiosInstance';
 
 export const useCategories=()=>{
         const getCategories=async()=>{
 
-            const response = await axios.get(`https://knowledgeshop.runasp.net/api/Categories`
-            ,{params: { limit: 100 }, headers:{
-                "Accept-Language":"en"
-            }});
+            const response = await axiosInstance.get('Categories', { params: { limit: 100 } });
             const categories = response.data.response.data;
             if (!Array.isArray(categories)) {
                 throw new Error('Invalid categories response');

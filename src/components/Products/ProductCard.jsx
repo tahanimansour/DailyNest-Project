@@ -1,9 +1,11 @@
+import useAddToCart from '../../hooks/useAddToCart'
 import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Rating, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 
 export default function ProductCard({product}) {
+  const { mutate, isPending } = useAddToCart()
   return (
     <Card sx={{ bgcolor: '#FFFFFF', border: '1px solid #E4E1D7', borderRadius: 3, p: { xs: 0.75, sm: 1 }, minWidth: 0, boxShadow: 'none', height: '100%', display: 'flex', flexDirection: 'column', position: 'relative', transition: 'transform 0.2s, box-shadow 0.2s', '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 8px 20px #0A2A2112' } }}>
         <CardActionArea component={Link} to={`/products/${product.id}`} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', flexGrow: 1, color: '#0A2A21' }}>
@@ -24,8 +26,8 @@ export default function ProductCard({product}) {
             <FavoriteBorderIcon sx={{ fontSize: 16 }} />
         </Box>
         <Box sx={{ px: { xs: 1, sm: 1.5 }, pb: { xs: 1, sm: 1.5 } }}>
-            <Button fullWidth disabled variant="contained" startIcon={<ShoppingCartOutlinedIcon />} sx={{ borderRadius: 2, textTransform: 'none', fontSize: { xs: 10, sm: 11 }, minHeight: 32, px: 1, whiteSpace: 'nowrap', boxShadow: 'none', '&.Mui-disabled': { bgcolor: '#094232', color: '#FFFFFF' } }}>
-                Add to Cart
+            <Button fullWidth disabled={isPending} onClick={() => mutate(product.id)} variant="contained" startIcon={<ShoppingCartOutlinedIcon />} sx={{ bgcolor: '#094232', color: '#FFFFFF', '&:hover': { bgcolor: '#063326' }, borderRadius: 2, textTransform: 'none', fontSize: { xs: 10, sm: 11 }, minHeight: 32, px: 1, whiteSpace: 'nowrap', boxShadow: 'none', '&.Mui-disabled': { bgcolor: '#094232', color: '#FFFFFF' } }}>
+                {isPending ? 'Adding...' : 'Add to Cart'}
             </Button>
         </Box>
     </Card>
